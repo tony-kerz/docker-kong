@@ -1,6 +1,3 @@
-# docker-kong
-
-curl -sSv -X POST -H 'Content-type: application/json' master.mesos:8080/v2/apps -d '
 {
   "id": "kong-2",
   "instances": 1,
@@ -24,7 +21,7 @@ curl -sSv -X POST -H 'Content-type: application/json' master.mesos:8080/v2/apps 
     },
     "volumes": [
       {
-        "containerPath": "/etc/kong/kong.yml",
+        "containerPath": "/etc/kong",
         "hostPath": "./kong.yml",
         "mode": "RO"
       }
@@ -37,10 +34,5 @@ curl -sSv -X POST -H 'Content-type: application/json' master.mesos:8080/v2/apps 
     {
       "protocol": "TCP"
     }
-  ],
-  "constraints": [
-    ["hostname", "CLUSTER", "ip-10-0-1-80.ec2.internal"]
   ]
 }
-'
-```
